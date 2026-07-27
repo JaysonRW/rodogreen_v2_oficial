@@ -6,6 +6,26 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Rodogreen Implementos",
+    url: "https://rodogreen.com.br/",
+    foundingDate: "2011",
+    description:
+      "Fabricante brasileira de implementos rodoviários, caçambas basculantes, carrocerias personalizadas e projetos especiais.",
+    areaServed: {
+      "@type": "Country",
+      name: "Brasil",
+    },
+    knowsAbout: [
+      "Caçambas basculantes",
+      "Carrocerias personalizadas",
+      "Implementos rodoviários",
+      "Projetos especiais móveis",
+      "Furgões",
+    ],
+  };
 
   function sendQuote(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,6 +45,10 @@ export default function Home() {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Rodogreen — página inicial">
           <span>RODO</span><strong>GREEN</strong>
