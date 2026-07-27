@@ -16,10 +16,36 @@ export default function Home() {
     { question: "A Rodogreen atende clientes de quais regiões?", answer: "A Rodogreen atende pessoas físicas, empresas e órgãos públicos em todo o Brasil." },
   ];
   const productImages = [
-    { src: "/images/basculante-hero.jpg", alt: "Caçamba basculante Rodogreen instalada em caminhão", label: "Potência" },
-    { src: "/images/carroceria-personalizada.jpg", alt: "Carroceria personalizada Rodogreen em acabamento azul e branco", label: "Equilíbrio" },
-    { src: "/images/furgao-aluminio.jpg", alt: "Implemento Rodogreen finalizado dentro da fábrica", label: "Precisão" },
+    {
+      src: "/images/basculante-hero.jpg", alt: "Caçamba basculante Rodogreen instalada em caminhão", label: "Basculantes",
+      kicker: "Linha Forza · Basculantes", title: "Potência para operações exigentes.",
+      description: "Caçambas de 8 a 16 m³ para areia, brita e terra, com configurações de ação direta, indireta ou pistão frontal. Estrutura robusta, hidráulica dimensionada e acabamento em pintura PU.",
+      features: ["Aço estrutural de alta resistência", "Projeto adequado ao chassi e à aplicação", "Componentes conforme normas CONTRAN"],
+      action: "Explorar basculantes",
+    },
+    {
+      src: "/images/carroceria-personalizada.jpg", alt: "Carroceria aberta Rodogreen em acabamento azul e branco", label: "Carrocerias abertas",
+      kicker: "Transporte de carga · Carrocerias abertas", title: "Versatilidade com construção sob medida.",
+      description: "Carrocerias abertas desenvolvidas conforme o veículo, o tipo de carga e a rotina da operação. Dimensões, laterais, acabamento, cor e detalhes funcionais podem ser personalizados.",
+      features: ["Configuração adequada ao tipo de carga", "Dimensões e acabamento personalizáveis", "Estrutura projetada para uso profissional"],
+      action: "Conhecer carrocerias abertas",
+    },
+    {
+      src: "/images/projeto-especial.jpg", alt: "Projeto especial Rodogreen com unidade técnica instalada em caminhão", label: "Projetos especiais",
+      kicker: "Engenharia aplicada · Projetos especiais", title: "Uma solução criada para a sua finalidade.",
+      description: "Unidades móveis, clínicas veterinárias, ambulatórios, escritórios sobre rodas e outras configurações especiais desenvolvidas a partir da necessidade real de cada cliente.",
+      features: ["Levantamento técnico individual", "Estrutura e sistemas integrados ao projeto", "Fabricação completa em processo próprio"],
+      action: "Apresentar um projeto especial",
+    },
+    {
+      src: "/images/furgao-aluminio.jpg", alt: "Carroceria baú Rodogreen instalada em caminhão Mercedes-Benz", label: "Carrocerias baú",
+      kicker: "Carga protegida · Carrocerias baú", title: "Proteção, volume e acabamento profissional.",
+      description: "Carrocerias baú construídas para o transporte protegido de cargas, com configuração compatível com o chassi e possibilidade de adequações conforme a operação do cliente.",
+      features: ["Construção adequada ao veículo", "Aproveitamento funcional do volume de carga", "Acabamento e detalhes personalizáveis"],
+      action: "Conhecer carrocerias baú",
+    },
   ];
+  const activeProduct = productImages[productImage];
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -37,7 +63,7 @@ export default function Home() {
       "Carrocerias personalizadas",
       "Implementos rodoviários",
       "Projetos especiais móveis",
-      "Furgões",
+      "Carrocerias baú",
     ],
   };
   const faqStructuredData = {
@@ -166,8 +192,8 @@ export default function Home() {
         </div>
         <article className="feature-product">
           <div className="feature-photo">
-            <img src={productImages[productImage].src} alt={productImages[productImage].alt} />
-            <span className="photo-number">0{productImage + 1} / 03</span>
+            <img src={activeProduct.src} alt={activeProduct.alt} />
+            <span className="photo-number">0{productImage + 1} / 04</span>
             <div className="product-gallery" aria-label="Galeria de implementos Rodogreen">
               {productImages.map((image, index) => (
                 <button type="button" key={image.src} className={productImage === index ? "active" : ""} onClick={() => setProductImage(index)} aria-label={`Ver imagem: ${image.label}`}>
@@ -177,26 +203,22 @@ export default function Home() {
             </div>
           </div>
           <div className="feature-copy">
-            <span className="product-kicker">Linha Forza · Basculantes</span>
-            <h3>Potência, equilíbrio e precisão.</h3>
-            <p>
-              Caçambas de 8 a 16 m³ para areia, brita e terra, com configurações de
-              ação direta, indireta ou pistão frontal. Estruturas em aço, hidráulica
-              dimensionada e acabamento em pintura PU.
-            </p>
+            <span className="product-kicker">{activeProduct.kicker}</span>
+            <h3>{activeProduct.title}</h3>
+            <p>{activeProduct.description}</p>
             <ul>
-              <li><span>01</span> Aço estrutural de alta resistência</li>
-              <li><span>02</span> Projeto adequado ao chassi e à aplicação</li>
-              <li><span>03</span> Componentes conforme normas CONTRAN</li>
+              {activeProduct.features.map((feature, index) => (
+                <li key={feature}><span>0{index + 1}</span> {feature}</li>
+              ))}
             </ul>
-            <a className="outline-button" href="#orcamento">Explorar basculantes <Arrow /></a>
+            <a className="outline-button" href="#orcamento">{activeProduct.action} <Arrow /></a>
           </div>
         </article>
         <div className="product-ribbon">
           <span>Basculantes</span><i />
           <span>Carrocerias abertas</span><i />
           <span>Projetos especiais</span><i />
-          <span>Furgões</span>
+          <span>Carrocerias baú</span>
         </div>
       </section>
 
@@ -295,9 +317,9 @@ export default function Home() {
             <select name="product" required defaultValue="">
               <option value="" disabled>Selecione uma solução</option>
               <option>Caçamba basculante</option>
-              <option>Carroceria personalizada</option>
+              <option>Carroceria aberta</option>
+              <option>Carroceria baú</option>
               <option>Projeto especial / unidade móvel</option>
-              <option>Furgão</option>
               <option>Outro implemento</option>
             </select>
           </label>
