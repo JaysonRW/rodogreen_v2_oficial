@@ -6,6 +6,21 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [buildStage, setBuildStage] = useState<"sketch" | "structure" | "finish">("sketch");
+  const [productImage, setProductImage] = useState(0);
+  const faqs = [
+    { question: "A Rodogreen fabrica caçambas em medidas personalizadas?", answer: "Sim. A Rodogreen possui modelos padronizados, mas adequa dimensões, capacidade, cor, acabamento e detalhes construtivos conforme o veículo e a necessidade da operação." },
+    { question: "Quais informações são necessárias para solicitar um orçamento?", answer: "O ideal é informar a cidade e o estado, marca e modelo do caminhão, tipo de carga, volume desejado e as personalizações necessárias. Se ainda não tiver todos os dados, a equipe realiza o levantamento técnico." },
+    { question: "A Rodogreen realiza todo o processo de fabricação?", answer: "Sim. Engenharia, corte, dobra, solda, pintura, montagem e instalação são conduzidos pela própria Rodogreen, permitindo controle técnico e de acabamento em todas as etapas." },
+    { question: "Qual é o prazo de fabricação de um implemento?", answer: "O prazo varia conforme o modelo, o veículo, o nível de personalização e a complexidade do projeto. A previsão é apresentada após o levantamento técnico e a definição do escopo." },
+    { question: "Os implementos possuem garantia?", answer: "Sim. A Rodogreen oferece 180 dias de garantia contra defeitos de fabricação e montagem, conforme as condições do certificado entregue com o implemento, além de pós-venda especializado." },
+    { question: "A Rodogreen atende clientes de quais regiões?", answer: "A Rodogreen atende pessoas físicas, empresas e órgãos públicos em todo o Brasil." },
+  ];
+  const productImages = [
+    { src: "/images/basculante-hero.jpg", alt: "Caçamba basculante Rodogreen instalada em caminhão", label: "Potência" },
+    { src: "/images/carroceria-personalizada.jpg", alt: "Carroceria personalizada Rodogreen em acabamento azul e branco", label: "Equilíbrio" },
+    { src: "/images/furgao-aluminio.jpg", alt: "Implemento Rodogreen finalizado dentro da fábrica", label: "Precisão" },
+  ];
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -25,6 +40,15 @@ export default function Home() {
       "Projetos especiais móveis",
       "Furgões",
     ],
+  };
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
   };
 
   function sendQuote(event: FormEvent<HTMLFormElement>) {
@@ -49,10 +73,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Rodogreen — página inicial">
-          <span>RODO</span><strong>GREEN</strong>
-          <small>IMPLEMENTOS PARA O TRANSPORTE</small>
+          <img src="/images/logo-rodogreen.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <button
           className="menu-toggle"
@@ -66,6 +90,7 @@ export default function Home() {
           <a href="#implementos" onClick={() => setMenuOpen(false)}>Implementos</a>
           <a href="#engenharia" onClick={() => setMenuOpen(false)}>Engenharia</a>
           <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos especiais</a>
+          <a href="#faq" onClick={() => setMenuOpen(false)}>Dúvidas</a>
           <a href="#empresa" onClick={() => setMenuOpen(false)}>A Rodogreen</a>
         </nav>
         <a className="header-cta" href="#orcamento">Solicitar orçamento <Arrow /></a>
@@ -102,12 +127,37 @@ export default function Home() {
       <section className="statement" id="empresa">
         <p className="section-label">A qualidade está nos detalhes</p>
         <div>
-          <h2>Do primeiro risco do projeto ao acabamento final.</h2>
+          <h2>Do primeiro risco ao acabamento final.</h2>
           <p>
             Há 15 anos, a Rodogreen transforma necessidades operacionais em implementos
             de alto padrão. Engenharia, corte, dobra, solda, pintura, montagem e instalação:
             todas as etapas realizadas por uma equipe que conhece o produto por inteiro.
           </p>
+        </div>
+        <div className={`build-story stage-${buildStage}`}>
+          <div className="build-visual">
+            <img src="/images/basculante-hero.jpg" alt="Evolução visual do projeto de uma caçamba basculante Rodogreen" />
+            <div className="blueprint-grid" aria-hidden="true" />
+            <div className="blueprint-lines" aria-hidden="true">
+              <span className="measure measure-a">8–16 m³</span><span className="measure measure-b">Aço estrutural</span>
+              <i className="line line-a" /><i className="line line-b" /><i className="line line-c" />
+            </div>
+            <div className="build-caption">
+              <span>0{buildStage === "sketch" ? "1" : buildStage === "structure" ? "2" : "3"}</span>
+              <strong>{buildStage === "sketch" ? "Projeto técnico" : buildStage === "structure" ? "Estrutura e montagem" : "Acabamento Rodogreen"}</strong>
+            </div>
+          </div>
+          <div className="build-controls" aria-label="Etapas de fabricação">
+            {[
+              ["sketch", "01", "Esboço", "Geometria, aplicação e compatibilidade com o chassi."],
+              ["structure", "02", "Estrutura", "Corte, dobra, solda e montagem sob controle próprio."],
+              ["finish", "03", "Acabamento", "Preparação, pintura PU, instalação e conferência final."],
+            ].map(([value, n, title, text]) => (
+              <button type="button" key={value} className={buildStage === value ? "active" : ""} onClick={() => setBuildStage(value as "sketch" | "structure" | "finish")}>
+                <span>{n}</span><strong>{title}</strong><small>{text}</small>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -118,8 +168,15 @@ export default function Home() {
         </div>
         <article className="feature-product">
           <div className="feature-photo">
-            <img src="/images/basculante-hero.jpg" alt="Caçamba basculante Rodogreen branca" />
-            <span className="photo-number">01 / 03</span>
+            <img src={productImages[productImage].src} alt={productImages[productImage].alt} />
+            <span className="photo-number">0{productImage + 1} / 03</span>
+            <div className="product-gallery" aria-label="Galeria de implementos Rodogreen">
+              {productImages.map((image, index) => (
+                <button type="button" key={image.src} className={productImage === index ? "active" : ""} onClick={() => setProductImage(index)} aria-label={`Ver imagem: ${image.label}`}>
+                  <img src={image.src} alt="" /><span>{image.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
           <div className="feature-copy">
             <span className="product-kicker">Linha Forza · Basculantes</span>
@@ -207,6 +264,22 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="faq" id="faq">
+        <div className="faq-heading">
+          <p className="section-label">Perguntas frequentes</p>
+          <h2>Antes de chegar à estrada, algumas dúvidas são naturais.</h2>
+          <p>Reunimos respostas diretas sobre personalização, orçamento, fabricação, prazo e garantia. Para uma análise específica, fale com nossa equipe.</p>
+        </div>
+        <div className="faq-list">
+          {faqs.map((item, index) => (
+            <details key={item.question} open={index === 0}>
+              <summary><span>0{index + 1}</span>{item.question}<i aria-hidden="true">+</i></summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="quote" id="orcamento">
         <div className="quote-intro">
           <p className="section-label light">Comece seu projeto</p>
@@ -241,8 +314,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#inicio">
-          <span>RODO</span><strong>GREEN</strong>
-          <small>IMPLEMENTOS PARA O TRANSPORTE</small>
+          <img src="/images/logo-rodogreen.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <p>Implementos robustos. Engenharia personalizada.</p>
         <div><a href="#implementos">Implementos</a><a href="#engenharia">Engenharia</a><a href="#projetos">Projetos especiais</a></div>
