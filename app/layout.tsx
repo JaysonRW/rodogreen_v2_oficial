@@ -28,8 +28,21 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      {
+        url: "/rodogreen-favicon.png",
+        type: "image/png",
+        sizes: "1024x1024",
+      },
+    ],
+    shortcut: "/rodogreen-favicon.png",
+    apple: [
+      {
+        url: "/rodogreen-favicon.png",
+        type: "image/png",
+        sizes: "1024x1024",
+      },
+    ],
   },
 };
 
