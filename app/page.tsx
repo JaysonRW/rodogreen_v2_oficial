@@ -6,7 +6,6 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [buildStage, setBuildStage] = useState<"sketch" | "structure" | "finish">("sketch");
   const [productImage, setProductImage] = useState(0);
   const faqs = [
     { question: "A Rodogreen fabrica caçambas em medidas personalizadas?", answer: "Sim. A Rodogreen possui modelos padronizados, mas adequa dimensões, capacidade, cor, acabamento e detalhes construtivos conforme o veículo e a necessidade da operação." },
@@ -76,7 +75,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Rodogreen — página inicial">
-          <img src="/images/logo-rodogreen.png" alt="Rodogreen — Implementos para o Transporte" />
+          <img src="/images/logo-rodogreen-horizontal.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <button
           className="menu-toggle"
@@ -134,28 +133,27 @@ export default function Home() {
             todas as etapas realizadas por uma equipe que conhece o produto por inteiro.
           </p>
         </div>
-        <div className={`build-story stage-${buildStage}`}>
+        <div className="build-story">
           <div className="build-visual">
-            <img src="/images/basculante-hero.jpg" alt="Evolução visual do projeto de uma caçamba basculante Rodogreen" />
-            <div className="blueprint-grid" aria-hidden="true" />
-            <div className="blueprint-lines" aria-hidden="true">
-              <span className="measure measure-a">8–16 m³</span><span className="measure measure-b">Aço estrutural</span>
-              <i className="line line-a" /><i className="line line-b" /><i className="line line-c" />
-            </div>
+            <img
+              src="/images/engenharia-esboco-real-v1.png"
+              alt="Representação conceitual da evolução de um projeto: do esboço técnico à caçamba basculante finalizada"
+            />
+            <div className="build-sweep" aria-hidden="true" />
             <div className="build-caption">
-              <span>0{buildStage === "sketch" ? "1" : buildStage === "structure" ? "2" : "3"}</span>
-              <strong>{buildStage === "sketch" ? "Projeto técnico" : buildStage === "structure" ? "Estrutura e montagem" : "Acabamento Rodogreen"}</strong>
+              <span>01—03</span>
+              <strong>Da engenharia à estrada</strong>
             </div>
           </div>
-          <div className="build-controls" aria-label="Etapas de fabricação">
+          <div className="build-controls" aria-label="Etapas representadas na imagem">
             {[
               ["sketch", "01", "Esboço", "Geometria, aplicação e compatibilidade com o chassi."],
               ["structure", "02", "Estrutura", "Corte, dobra, solda e montagem sob controle próprio."],
               ["finish", "03", "Acabamento", "Preparação, pintura PU, instalação e conferência final."],
             ].map(([value, n, title, text]) => (
-              <button type="button" key={value} className={buildStage === value ? "active" : ""} onClick={() => setBuildStage(value as "sketch" | "structure" | "finish")}>
+              <div key={value}>
                 <span>{n}</span><strong>{title}</strong><small>{text}</small>
-              </button>
+              </div>
             ))}
           </div>
         </div>
@@ -314,7 +312,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#inicio">
-          <img src="/images/logo-rodogreen.png" alt="Rodogreen — Implementos para o Transporte" />
+          <img src="/images/logo-rodogreen-horizontal.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <p>Implementos robustos. Engenharia personalizada.</p>
         <div><a href="#implementos">Implementos</a><a href="#engenharia">Engenharia</a><a href="#projetos">Projetos especiais</a></div>
