@@ -196,7 +196,13 @@ export default function Home() {
             <span className="photo-number">0{productImage + 1} / 04</span>
             <div className="product-gallery" aria-label="Galeria de implementos Rodogreen">
               {productImages.map((image, index) => (
-                <button type="button" key={image.src} className={productImage === index ? "active" : ""} onClick={() => setProductImage(index)} aria-label={`Ver imagem: ${image.label}`}>
+                <button
+                  type="button"
+                  key={image.src}
+                  className={`${productImage === index ? "active" : ""} ${index === 0 ? "basculante-thumb" : ""}`.trim()}
+                  onClick={() => setProductImage(index)}
+                  aria-label={`Ver imagem: ${image.label}`}
+                >
                   <img src={image.src} alt="" /><span>{image.label}</span>
                 </button>
               ))}
