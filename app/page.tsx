@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import WhatsAppAssistant from "./WhatsAppAssistant";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -89,7 +90,7 @@ export default function Home() {
       `Aplicação e especificações: ${data.get("details")}`,
     ];
     const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5541000000000?text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/5541999260108?text=${message}`, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -334,7 +335,7 @@ export default function Home() {
             <textarea name="details" required placeholder="Conte o que será transportado, volume desejado e personalizações necessárias." />
           </label>
           <button type="submit">Enviar solicitação pelo WhatsApp <Arrow /></button>
-          <p className="form-note">O número comercial definitivo será conectado antes da publicação oficial.</p>
+          <p className="form-note">Você será direcionado ao WhatsApp comercial da Rodogreen com os dados preenchidos.</p>
         </form>
       </section>
 
@@ -346,6 +347,7 @@ export default function Home() {
         <div><a href="#implementos">Implementos</a><a href="#engenharia">Engenharia</a><a href="#projetos">Projetos especiais</a></div>
         <small>© 2026 Rodogreen Implementos. Todos os direitos reservados.</small>
       </footer>
+      <WhatsAppAssistant />
     </main>
   );
 }
