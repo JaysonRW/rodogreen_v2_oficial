@@ -1,7 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, lazy, Suspense, useState } from "react";
 import WhatsAppAssistant from "./WhatsAppAssistant";
+
+const DumpTruckViewer = lazy(() => import("./DumpTruckViewer"));
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -237,25 +239,14 @@ export default function Home() {
       <section className="craft" id="engenharia">
         <div className="craft-title">
           <p className="section-label">Domínio de ponta a ponta</p>
-          <h2>Não é apenas fabricação.<br />É cultura de engenharia.</h2>
-        </div>
-        <div className="craft-canvas">
-          <div className="craft-photo">
-            <img src="/images/furgao-aluminio.jpg" alt="Implemento Rodogreen em processo final dentro da fábrica" />
-          </div>
-          <div className="craft-note note-one">
-            <strong>Solda MIG</strong>
-            <span>Execução profissional e controle de acabamento.</span>
-          </div>
-          <div className="craft-note note-two">
-            <strong>Pintura PU</strong>
-            <span>Preparação química, fosfatização e acabamento superior.</span>
-          </div>
-          <div className="craft-note note-three">
-            <strong>Engenharia própria</strong>
-            <span>Do levantamento técnico à instalação no veículo.</span>
+          <div>
+            <h2>Não é apenas fabricação.<br />É cultura de engenharia.</h2>
+            <p>Explore o implemento em 360° e veja como estrutura, hidráulica e chassi trabalham como um único sistema.</p>
           </div>
         </div>
+        <Suspense fallback={<div className="truck-viewer truck-loading">Preparando experiência 3D...</div>}>
+          <DumpTruckViewer />
+        </Suspense>
       </section>
 
       <section className="special" id="projetos">
