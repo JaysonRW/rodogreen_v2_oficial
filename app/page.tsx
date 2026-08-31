@@ -8,6 +8,9 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [productImage, setProductImage] = useState(0);
+  const [quoteSolution, setQuoteSolution] = useState("");
+  const [quoteDeadline, setQuoteDeadline] = useState("");
+  const [quoteBudget, setQuoteBudget] = useState("");
   const faqs = [
     { question: "A Rodogreen fabrica caçambas em medidas personalizadas?", answer: "Sim. A Rodogreen possui modelos padronizados, mas adequa dimensões, capacidade, cor, acabamento e detalhes construtivos conforme o veículo e a necessidade da operação." },
     { question: "Quais informações são necessárias para solicitar um orçamento?", answer: "O ideal é informar a cidade e o estado, marca e modelo do caminhão, tipo de carga, volume desejado e as personalizações necessárias. Se ainda não tiver todos os dados, a equipe realiza o levantamento técnico." },
@@ -86,6 +89,8 @@ export default function Home() {
       `Nome: ${data.get("name")}`,
       `Cidade/UF: ${data.get("region")}`,
       `Produto: ${data.get("product")}`,
+      `Prazo: ${data.get("deadline")}`,
+      `Investimento: ${data.get("budget")}`,
       `Caminhão: ${data.get("truck") || "Não informado"}`,
       `Aplicação e especificações: ${data.get("details")}`,
     ];
@@ -309,34 +314,88 @@ export default function Home() {
 
       <section className="quote" id="orcamento">
         <div className="quote-intro">
-          <p className="section-label light">Comece seu projeto</p>
-          <h2>Qual é o próximo desafio da sua operação?</h2>
+          <p className="section-label light">Briefing de projeto · 01</p>
+          <h2>O próximo implemento começa com uma boa conversa.</h2>
           <p>
-            Preencha os dados essenciais. A mensagem chega organizada ao comercial
-            da Rodogreen para agilizar o primeiro atendimento.
+            Conte o essencial agora. Nossa equipe recebe um briefing organizado e
+            entra na conversa já entendendo o cenário da sua operação.
           </p>
-          <small>Atendimento para todo o Brasil · Pessoas físicas, empresas e órgãos públicos.</small>
+          <ol className="quote-path">
+            <li><span>01</span><div><strong>Você apresenta o desafio</strong><small>Aplicação, veículo, prazo e expectativa.</small></div></li>
+            <li><span>02</span><div><strong>A engenharia interpreta</strong><small>Viabilidade, configuração e melhor caminho técnico.</small></div></li>
+            <li><span>03</span><div><strong>O projeto ganha forma</strong><small>Proposta clara para avançar com segurança.</small></div></li>
+          </ol>
+          <div className="quote-assurance"><i /> Atendimento humano para todo o Brasil</div>
         </div>
-        <form onSubmit={sendQuote}>
-          <label>Seu nome<input name="name" required placeholder="Como podemos chamar você?" /></label>
-          <label>Cidade e estado<input name="region" required placeholder="Ex.: Curitiba — PR" /></label>
-          <label>O que você busca?
-            <select name="product" required defaultValue="">
-              <option value="" disabled>Selecione uma solução</option>
-              <option>Caçamba basculante</option>
-              <option>Carroceria aberta</option>
-              <option>Carroceria baú</option>
-              <option>Projeto especial / unidade móvel</option>
-              <option>Outro implemento</option>
-            </select>
-          </label>
-          <label>Marca e modelo do caminhão<input name="truck" placeholder="Se já souber, informe aqui" /></label>
-          <label className="full">Aplicação e especificações
-            <textarea name="details" required placeholder="Conte o que será transportado, volume desejado e personalizações necessárias." />
-          </label>
-          <button type="submit">Enviar solicitação pelo WhatsApp <Arrow /></button>
-          <p className="form-note">Você será direcionado ao WhatsApp comercial da Rodogreen com os dados preenchidos.</p>
-        </form>
+        <div className="quote-card">
+          <div className="quote-card-head">
+            <div><span>Seu projeto</span><strong>Vamos entender a necessidade.</strong></div>
+            <em>Leva cerca de 1 min</em>
+          </div>
+          <form onSubmit={sendQuote}>
+            <div className="quote-fields">
+              <label><span>Seu nome</span><input name="name" required autoComplete="name" placeholder="Como podemos chamar você?" /></label>
+              <label><span>Cidade e estado</span><input name="region" required autoComplete="address-level2" placeholder="Ex.: Curitiba — PR" /></label>
+            </div>
+
+            <fieldset className="choice-fieldset">
+              <legend><span>01</span> O que você busca?</legend>
+              <input type="hidden" name="product" value={quoteSolution} />
+              <div className="solution-grid" role="radiogroup" aria-label="Solução desejada">
+                {[
+                  ["Caçamba basculante", "Basculantes"],
+                  ["Carroceria aberta", "Carga aberta"],
+                  ["Carroceria baú", "Carga protegida"],
+                  ["Projeto especial / unidade móvel", "Sob medida"],
+                  ["Reforma ou manutenção", "Pós-venda"],
+                  ["Outro implemento", "Quero orientação"],
+                ].map(([value, detail], index) => (
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked={quoteSolution === value}
+                    className={quoteSolution === value ? "selected" : ""}
+                    key={value}
+                    onClick={() => setQuoteSolution(value)}
+                  >
+                    <i>0{index + 1}</i><strong>{value}</strong><small>{detail}</small><span>✓</span>
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <div className="quote-fields compact">
+              <label><span>Marca e modelo do caminhão</span><input name="truck" placeholder="Se já souber, informe aqui" /></label>
+              <label><span>Aplicação principal</span><input name="details" required placeholder="Ex.: areia, brita, carga seca..." /></label>
+            </div>
+
+            <div className="choice-columns">
+              <fieldset className="choice-fieldset compact-choice">
+                <legend><span>02</span> Prazo desejado</legend>
+                <input type="hidden" name="deadline" value={quoteDeadline} />
+                <div role="radiogroup" aria-label="Prazo desejado">
+                  {["Até 30 dias", "1 a 3 meses", "Estou planejando"].map((value) => (
+                    <button type="button" role="radio" aria-checked={quoteDeadline === value} className={quoteDeadline === value ? "selected" : ""} key={value} onClick={() => setQuoteDeadline(value)}>{value}<i>✓</i></button>
+                  ))}
+                </div>
+              </fieldset>
+              <fieldset className="choice-fieldset compact-choice">
+                <legend><span>03</span> Investimento previsto</legend>
+                <input type="hidden" name="budget" value={quoteBudget} />
+                <div role="radiogroup" aria-label="Investimento previsto">
+                  {["Até R$ 100 mil", "Acima de R$ 100 mil", "Preciso de orientação"].map((value) => (
+                    <button type="button" role="radio" aria-checked={quoteBudget === value} className={quoteBudget === value ? "selected" : ""} key={value} onClick={() => setQuoteBudget(value)}>{value}<i>✓</i></button>
+                  ))}
+                </div>
+              </fieldset>
+            </div>
+
+            <button className="quote-submit" type="submit" disabled={!quoteSolution || !quoteDeadline || !quoteBudget}>
+              <span><small>Próximo passo</small>Conversar com um consultor</span><Arrow />
+            </button>
+            <p className="form-note"><i /> Seus dados seguem direto para o WhatsApp comercial da Rodogreen.</p>
+          </form>
+        </div>
       </section>
 
       <footer>
