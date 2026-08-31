@@ -1,1 +1,108 @@
-IyB2aW5leHQtc3RhcnRlcgoKQSBjbGVhbiBmdWxsLXN0YWNrIHN0YXJ0ZXIgcnVubmluZyBvbgpbdmluZXh0XShodHRwczovL2dpdGh1Yi5jb20vY2xvdWRmbGFyZS92aW5leHQpLCB3aXRoIG9wdGlvbmFsIENsb3VkZmxhcmUgRDEgYW5kCkRyaXp6bGUgc3VwcG9ydC4KCiMjIFByZXJlcXVpc2l0ZXMKCi0gTm9kZS5qcyBgPj0yMi4xMy4wYAotIExpbnV4IHdpdGggYGZsb2NrYCwgYGN1cmxgLCBhbmQgR05VIGB0aW1lb3V0YAoKIyMgU2l0ZXMgTGlmZWN5Y2xlCgpUaGUgU2l0ZXMgbGlmZWN5Y2xlIENMSSBydW5zIHRoZSBsb2NrZWQgZGVwZW5kZW5jeSBpbnN0YWxsIGJlZm9yZSByZXR1cm5pbmcgdGhpcyBjaGVja291dC4gRWRpdCB0aGUgc291cmNlIHVuZGVyIGBhcHAvYCwgdGhlbiBjaGVja3BvaW50IHdoZW4gYSBjb2hlcmVudCBtaWxlc3RvbmUgaXMgcmVhZHkgdG8gaW5zcGVjdCBvciBzaGFyZS4gVGhlIHJlbW90ZSBTaXRlcyBidWlsZGVyIHJ1bnMgYG5wbSBydW4gYnVpbGRgIGFnYWluc3QgdGhlIHB1c2hlZCBjb21taXQuIERvIG5vdCByZXBlYXQgaW5zdGFsbCBvciBidWlsZCBhcyBhIG5vcm1hbCBwcmUtY2hlY2twb2ludCBzdGVwLgoKVGhpcyBzdGFydGVyIGRvZXMgbm90IHVzZSBgd3JhbmdsZXIuanNvbmNgLgoKYGluc3RhbGw6Y2lgIGlzIGludGVudGlvbmFsbHkgYSBzaW5nbGUsIG5vbi1yZXRyeWluZyBgbnBtIGNpYC4gSXQgcmVmdXNlcyBhIGNvbmN1cnJlbnQgaW5zdGFsbCBmb3IgdGhlIHNhbWUgcHJvamVjdCwgY29uc3VtZXMgYSBtYXRjaGluZyBpbWFnZS1zZWVkZWQgbnBtIGNhY2hlIHdpdGggYC0tcHJlZmVyLW9mZmxpbmVgIHdoaWxlIHJldGFpbmluZyByZWdpc3RyeSBmYWxsYmFjayBmb3IgYSBtaXNzaW5nIGNhY2hlIG9iamVjdCwgb3RoZXJ3aXNlIGRvd25sb2FkcyBhbmQgdmVyaWZpZXMgdGhlIGNvbXBsZXRlIHZpbmV4dCB0YXJiYWxsIHJlY29yZGVkIGluIGBwYWNrYWdlLWxvY2suanNvbmAsIGxpbWl0cyBucG0gdG8gb25lIHNvY2tldCwgYW5kIHRlcm1pbmF0ZXMgYSBzdGFsbGVkIGluc3RhbGwuIGBidWlsZGAgYXBwbGllcyBhIHNob3J0IHRpbWVvdXQgYW5kIHRoZW4gdmFsaWRhdGVzIHRoZSBTaXRlcyBhcnRpZmFjdC4gVGhlc2UgaGVscGVycyB0YXJnZXQgTGludXggYW5kIHVzZSBHTlUgYHRpbWVvdXRgOyB0aGV5IGFyZSBub3QgbmF0aXZlIG1hY09TIHNjcmlwdHMuCgpTY3JpcHRzIHRoYXQgbmVlZCB3cml0YWJsZSBwcm9qZWN0LXNjb3BlZCBob21lLCBucG0sIFhERywgYW5kIHRlbXBvcmFyeSBwYXRocyB1c2UgYHNjcmlwdHMvc2l0ZXMtZW52LnNoYC4gVGhlIGBkZXZgIGFuZCBgc3RhcnRgIHNjcmlwdHMgaG9ub3IgdGhlIGNhbGxlcidzIHJ1bnRpbWUgZW52aXJvbm1lbnQgYW5kIGtlZXAgV3JhbmdsZXIgbG9ncyBpbnNpZGUgdGhlIGNoZWNrb3V0LiBUaGUgZ2VuZXJhdGVkIGAuc2l0ZXMtcnVudGltZS9gIGRpcmVjdG9yeSBpcyBkaXNwb3NhYmxlIGFuZCBpZ25vcmVkIGJ5IEdpdC4KCiMjIEluY2x1ZGVkIFNoYXBlCgotIGVkaXQgc2l0ZSBjb2RlIHVuZGVyIGBhcHAvYAotIGBhcHAvY2hhdGdwdC1hdXRoLnRzYCBwcm92aWRlcyBvcHRpb25hbCBkaXNwYXRjaC1vd25lZCBDaGF0R1BUIHNpZ24taW4gaGVscGVycwotIGAub3BlbmFpL2hvc3RpbmcuanNvbmAgZGVjbGFyZXMgb3B0aW9uYWwgU2l0ZXMgRDEgYW5kIFIyIGJpbmRpbmdzCi0gYHZpdGUuY29uZmlnLnRzYCBzaW11bGF0ZXMgZGVjbGFyZWQgYmluZGluZ3MgZm9yIGxvY2FsIGRldmVsb3BtZW50Ci0gYGRiL2luZGV4LnRzYCByZWFkcyB0aGUgRDEgYmluZGluZyBmcm9tIHRoZSBDbG91ZGZsYXJlIFdvcmtlciBlbnZpcm9ubWVudAotIGBkYi9zY2hlbWEudHNgIHN0YXJ0cyBpbnRlbnRpb25hbGx5IGVtcHR5Ci0gYGV4YW1wbGVzL2QxL2AgY29udGFpbnMgYW4gb3B0aW9uYWwgRDEgZXhhbXBsZSBzdXJmYWNlCi0gYGRyaXp6bGUuY29uZmlnLnRzYCBzdXBwb3J0cyBsb2NhbCBtaWdyYXRpb24gZ2VuZXJhdGlvbiB3aGVuIG5lZWRlZAoKIyMgV29ya3NwYWNlIEF1dGggSGVhZGVycwoKT3BlbkFJIHdvcmtzcGFjZSBzaXRlcyBjYW4gcmVhZCB0aGUgY3VycmVudCB1c2VyJ3MgZW1haWwgZnJvbQpgb2FpLWF1dGhlbnRpY2F0ZWQtdXNlci1lbWFpbGAuCgpTSVdDLWF1dGhlbnRpY2F0ZWQgd29ya3NwYWNlIHNpdGVzIG1heSBhbHNvIHJlY2VpdmUKYG9haS1hdXRoZW50aWNhdGVkLXVzZXItZnVsbC1uYW1lYCB3aGVuIHRoZSB1c2VyJ3MgU0lXQyBwcm9maWxlIGhhcyBhIG5vbi1lbXB0eQpgbmFtZWAgY2xhaW0uIFRoZSBmdWxsLW5hbWUgdmFsdWUgaXMgcGVyY2VudC1lbmNvZGVkIFVURi04IGFuZCBpcyBhY2NvbXBhbmllZCBieQpgb2FpLWF1dGhlbnRpY2F0ZWQtdXNlci1mdWxsLW5hbWUtZW5jb2Rpbmc6IHBlcmNlbnQtZW5jb2RlZC11dGYtOGAuCgpUcmVhdCB0aGUgZnVsbCBuYW1lIGFzIG9wdGlvbmFsIGFuZCBmYWxsIGJhY2sgdG8gZW1haWwgd2hlbiBpdCBpcyBhYnNlbnQ6CgpgYGB0c3gKaW1wb3J0IHsgaGVhZGVycyB9IGZyb20gIm5leHQvaGVhZGVycyI7CgpleHBvcnQgZGVmYXVsdCBhc3luYyBmdW5jdGlvbiBIb21lKCkgewogIGNvbnN0IHJlcXVlc3RIZWFkZXJzID0gYXdhaXQgaGVhZGVycygpOwogIGNvbnN0IGVtYWlsID0gcmVxdWVzdEhlYWRlcnMuZ2V0KCJvYWktYXV0aGVudGljYXRlZC11c2VyLWVtYWlsIik7CiAgY29uc3QgZW5jb2RlZEZ1bGxOYW1lID0gcmVxdWVzdEhlYWRlcnMuZ2V0KCJvYWktYXV0aGVudGljYXRlZC11c2VyLWZ1bGwtbmFtZSIpOwogIGNvbnN0IGZ1bGxOYW1lID0KICAgIGVuY29kZWRGdWxsTmFtZSAmJgogICAgcmVxdWVzdEhlYWRlcnMuZ2V0KCJvYWktYXV0aGVudGljYXRlZC11c2VyLWZ1bGwtbmFtZS1lbmNvZGluZyIpID09PQogICAgICAicGVyY2VudC1lbmNvZGVkLXV0Zi04IgogICAgICA/IGRlY29kZVVSSUNvbXBvbmVudChlbmNvZGVkRnVsbE5hbWUpCiAgICAgIDogbnVsbDsKCiAgY29uc3QgZGlzcGxheU5hbWUgPSBmdWxsTmFtZSA/PyBlbWFpbDsKICAvLyAuLi4KfQpgYGAKCiMjIE9wdGlvbmFsIERpc3BhdGNoLU93bmVkIENoYXRHUFQgU2lnbi1JbgoKSW1wb3J0IHRoZSByZWFkeS10by11c2UgaGVscGVycyBmcm9tIGBhcHAvY2hhdGdwdC1hdXRoLnRzYCB3aGVuIHRoZSBzaXRlIG5lZWRzCm9wdGlvbmFsIG9yIHJlcXVpcmVkIENoYXRHUFQgc2lnbi1pbjoKCi0gVXNlIGBnZXRDaGF0R1BUVXNlcigpYCBmb3Igb3B0aW9uYWwgc2lnbmVkLWluIFVJLgotIFVzZSBgcmVxdWlyZUNoYXRHUFRVc2VyKHJldHVyblRvKWAgZm9yIHNlcnZlci1yZW5kZXJlZCBwYWdlcyB0aGF0IHNob3VsZCBzZW5kCiAgYW5vbnltb3VzIHZpc2l0b3JzIHRocm91Z2ggU2lnbiBpbiB3aXRoIENoYXRHUFQuCi0gVXNlIGBjaGF0R1BUU2lnbkluUGF0aChyZXR1cm5UbylgIGFuZCBgY2hhdEdQVFNpZ25PdXRQYXRoKHJldHVyblRvKWAgZm9yCiAgYnJvd3NlciBsaW5rcyBvciBhY3Rpb25zLgotIFBhc3MgYSBzYW1lLW9yaWdpbiByZWxhdGl2ZSBgcmV0dXJuVG9gIHBhdGggZm9yIHRoZSBkZXN0aW5hdGlvbiBhZnRlciBzaWduLWluCiAgb3Igc2lnbi1vdXQuIFRoZSBoZWxwZXIgdmFsaWRhdGVzIGFuZCBzYWZlbHkgZW5jb2RlcyBpdC4KLSBNYXJrIHByb3RlY3RlZCBwYWdlcyB3aXRoIGBleHBvcnQgY29uc3QgZHluYW1pYyA9ICJmb3JjZS1keW5hbWljImAgYmVjYXVzZQogIHRoZXkgZGVwZW5kIG9uIHBlci1yZXF1ZXN0IGlkZW50aXR5IGhlYWRlcnMuCgpEaXNwYXRjaCBvd25zIGAvc2lnbmluLXdpdGgtY2hhdGdwdGAsIGAvc2lnbm91dC13aXRoLWNoYXRncHRgLCBgL2NhbGxiYWNrYCwgdGhlCk9BdXRoIGNvb2tpZXMsIGFuZCBpZGVudGl0eSBoZWFkZXIgaW5qZWN0aW9uLiBEbyBub3QgaW1wbGVtZW50IGFwcCByb3V0ZXMgZm9yCnRob3NlIHJlc2VydmVkIHBhdGhzLiBSb3V0ZXMgdGhhdCBkbyBub3QgaW1wb3J0IGFuZCBjYWxsIHRoZSBoZWxwZXIgcmVtYWluCmFub255bW91cy1jb21wYXRpYmxlLgoKU0lXQyBlc3RhYmxpc2hlcyBpZGVudGl0eSBvbmx5OyBpdCBkb2VzIG5vdCBwcm92ZSB3b3Jrc3BhY2UgbWVtYmVyc2hpcC4gVXNlIHRoZQpTaXRlcyBob3N0aW5nIHBsYXRmb3JtJ3MgYWNjZXNzIHBvbGljeSBjb250cm9scyBmb3Igd29ya3NwYWNlLXdpZGUgcmVzdHJpY3Rpb25zLApvciBlbmZvcmNlIGV4cGxpY2l0IHNlcnZlci1zaWRlIG1lbWJlcnNoaXAgb3IgYWxsb3dsaXN0IGNoZWNrcy4KClVzZSBTSVdDIGZvciBhY2NvdW50IHBhZ2VzLCB1c2VyLXNwZWNpZmljIGRhc2hib2FyZHMsIHNhdmVkIHJlY29yZHMsIGFuZCB3cml0ZQphY3Rpb25zIHRpZWQgdG8gdGhlIGN1cnJlbnQgQ2hhdEdQVCB1c2VyLiBMZWF2ZSBwdWJsaWMgY29udGVudCBhbm9ueW1vdXMuCgojIyBEaWFnbm9zdGljIENvbW1hbmRzCgotIGBucG0gcnVuIGluc3RhbGw6Y2lgOiBwZXJmb3JtIHRoZSBvbmUgYm91bmRlZCBsb2NrZmlsZSBpbnN0YWxsCi0gYG5wbSBydW4gZGV2YDogc3RhcnQgdGhlIFZpdGUvVmluZXh0IGRldmVsb3BtZW50IHNlcnZlcgotIGBucG0gcnVuIGJ1aWxkYDogYnVpbGQgYW5kIHZhbGlkYXRlIHRoZSBkZXBsb3lhYmxlIFNpdGVzIGFydGlmYWN0Ci0gYG5wbSBydW4gc3RhcnRgOiBzdGFydCB0aGUgYnVpbHQgVmluZXh0IGFwcGxpY2F0aW9uCi0gYG5wbSB0ZXN0YDogYnVpbGQsIHZhbGlkYXRlLCBhbmQgdmVyaWZ5IHRoZSByZW5kZXJlZCBkZXZlbG9wbWVudC1wcmV2aWV3IG1ldGFkYXRhCi0gYG5wbSBydW4gdmFsaWRhdGU6YXJ0aWZhY3RgOiByZWNoZWNrIGFuIGV4aXN0aW5nIGFydGlmYWN0J3MgbWFuaWZlc3QgYW5kIEVTTSBgZGVmYXVsdC5mZXRjaGAgZXhwb3J0Ci0gYG5wbSBydW4gZGI6Z2VuZXJhdGVgOiBnZW5lcmF0ZSBEcml6emxlIG1pZ3JhdGlvbnMgYWZ0ZXIgc2NoZW1hIGNoYW5nZXMKClVzZSBidWlsZCBhbmQgdmFsaWRhdGlvbiBjb21tYW5kcyBmb3IgdGFyZ2V0ZWQgZGlhZ25vc2lzIGFmdGVyIGEgcmVtb3RlIGZhaWx1cmUsIG5vdCBhcyBwYXJ0IG9mIHRoZSBub3JtYWwgY2hlY2twb2ludCBwYXRoLgoKVGhlIHRpbWVvdXQgZGVmYXVsdHMgY2FuIGJlIG92ZXJyaWRkZW4gZm9yIGEgY29udHJvbGxlZCBjYW5hcnkgd2l0aCBgU0lURVNfSU5TVEFMTF9USU1FT1VUYCwgYFNJVEVTX0lOU1RBTExfS0lMTF9BRlRFUmAsIGBTSVRFU19CVUlMRF9USU1FT1VUYCwgYW5kIGBTSVRFU19CVUlMRF9LSUxMX0FGVEVSYC4gQSB0aW1lb3V0IGZhaWxzIHRoZSBjb21tYW5kOyB0aGUgaGVscGVycyBuZXZlciByZXRyeSBhbiB1bmNoYW5nZWQgaW5zdGFsbCBvciBidWlsZC4KCiMjIExlYXJuIE1vcmUKCi0gW3ZpbmV4dCBEb2N1bWVudGF0aW9uXShodHRwczovL2dpdGh1Yi5jb20vY2xvdWRmbGFyZS92aW5leHQpCi0gW0RyaXp6bGUgRDEgR3VpZGVdKGh0dHBzOi8vb3JtLmRyaXp6bGUudGVhbS9kb2NzL2dldC1zdGFydGVkL2QxLW5ldykK
+# vinext-starter
+
+A clean full-stack starter running on
+[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
+Drizzle support.
+
+## Prerequisites
+
+- Node.js `>=22.13.0`
+- Linux with `flock`, `curl`, and GNU `timeout`
+
+## Sites Lifecycle
+
+The Sites lifecycle CLI runs the locked dependency install before returning this checkout. Edit the source under `app/`, then checkpoint when a coherent milestone is ready to inspect or share. The remote Sites builder runs `npm run build` against the pushed commit. Do not repeat install or build as a normal pre-checkpoint step.
+
+This starter does not use `wrangler.jsonc`.
+
+`install:ci` is intentionally a single, non-retrying `npm ci`. It refuses a concurrent install for the same project, consumes a matching image-seeded npm cache with `--prefer-offline` while retaining registry fallback for a missing cache object, otherwise downloads and verifies the complete vinext tarball recorded in `package-lock.json`, limits npm to one socket, and terminates a stalled install. `build` applies a short timeout and then validates the Sites artifact. These helpers target Linux and use GNU `timeout`; they are not native macOS scripts.
+
+Scripts that need writable project-scoped home, npm, XDG, and temporary paths use `scripts/sites-env.sh`. The `dev` and `start` scripts honor the caller's runtime environment and keep Wrangler logs inside the checkout. The generated `.sites-runtime/` directory is disposable and ignored by Git.
+
+## Included Shape
+
+- edit site code under `app/`
+- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
+- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
+- `vite.config.ts` simulates declared bindings for local development
+- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
+- `db/schema.ts` starts intentionally empty
+- `examples/d1/` contains an optional D1 example surface
+- `drizzle.config.ts` supports local migration generation when needed
+
+## Workspace Auth Headers
+
+OpenAI workspace sites can read the current user's email from
+`oai-authenticated-user-email`.
+
+SIWC-authenticated workspace sites may also receive
+`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
+`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
+`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+
+Treat the full name as optional and fall back to email when it is absent:
+
+```tsx
+import { headers } from "next/headers";
+
+export default async function Home() {
+  const requestHeaders = await headers();
+  const email = requestHeaders.get("oai-authenticated-user-email");
+  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
+  const fullName =
+    encodedFullName &&
+    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
+      "percent-encoded-utf-8"
+      ? decodeURIComponent(encodedFullName)
+      : null;
+
+  const displayName = fullName ?? email;
+  // ...
+}
+```
+
+## Optional Dispatch-Owned ChatGPT Sign-In
+
+Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
+optional or required ChatGPT sign-in:
+
+- Use `getChatGPTUser()` for optional signed-in UI.
+- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
+  anonymous visitors through Sign in with ChatGPT.
+- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
+  browser links or actions.
+- Pass a same-origin relative `returnTo` path for the destination after sign-in
+  or sign-out. The helper validates and safely encodes it.
+- Mark protected pages with `export const dynamic = "force-dynamic"` because
+  they depend on per-request identity headers.
+
+Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
+OAuth cookies, and identity header injection. Do not implement app routes for
+those reserved paths. Routes that do not import and call the helper remain
+anonymous-compatible.
+
+SIWC establishes identity only; it does not prove workspace membership. Use the
+Sites hosting platform's access policy controls for workspace-wide restrictions,
+or enforce explicit server-side membership or allowlist checks.
+
+Use SIWC for account pages, user-specific dashboards, saved records, and write
+actions tied to the current ChatGPT user. Leave public content anonymous.
+
+## Diagnostic Commands
+
+- `npm run install:ci`: perform the one bounded lockfile install
+- `npm run dev`: start the Vite/Vinext development server
+- `npm run build`: build and validate the deployable Sites artifact
+- `npm run start`: start the built Vinext application
+- `npm test`: build, validate, and verify the rendered development-preview metadata
+- `npm run validate:artifact`: recheck an existing artifact's manifest and ESM `default.fetch` export
+- `npm run db:generate`: generate Drizzle migrations after schema changes
+
+Use build and validation commands for targeted diagnosis after a remote failure, not as part of the normal checkpoint path.
+
+The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
+
+## Learn More
+
+- [vinext Documentation](https://github.com/cloudflare/vinext)
+- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
