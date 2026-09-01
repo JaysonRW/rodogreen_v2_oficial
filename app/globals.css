@@ -111,7 +111,7 @@ img { display: block; width: 100%; }
 .special-content h2 { margin:25px 0; }
 .special-content > p:not(.section-label) { line-height:1.75; max-width:490px; color:var(--ink); }
 .special .section-label.light { color:var(--ink); }
-.primary-button.dark { margin-top:28px; background:var(--ink); }
+.primary-button.dark { margin-top:28px; background:var(--ink); color:white; }
 
 .numbers { background:var(--ink); color:white; display:grid; grid-template-columns:repeat(4,1fr); padding:55px 8.5vw; }
 .numbers div { display:grid; padding:10px 3vw; border-right:1px solid #36403c; }
