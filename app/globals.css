@@ -255,12 +255,14 @@ footer > small { text-align:right; font-size:9px; }
   .nav.open { transform:none; }
   .nav a { padding:14px 0; }
   .nav a::after { display:none; }
-  .hero { min-height:750px; }
-  .hero-content { width:auto; padding:170px 25px 120px; }
+  .hero { height:auto; min-height:900px; }
+  .hero-content { width:auto; padding:150px 25px 220px; }
   .hero h1 { font-size:clamp(54px,16vw,78px); }
   .hero-copy { max-width:90%; font-size:15px; }
-  .hero-actions { align-items:flex-start; flex-direction:column; gap:24px; }
-  .hero-proof { right:22px; bottom:28px; }
+  .hero-actions { align-items:stretch; flex-direction:column; gap:26px; }
+  .hero-actions .primary-button { width:100%; }
+  .hero-actions .text-link { align-self:flex-start; }
+  .hero-proof { right:auto; left:25px; bottom:34px; }
   .hero-index { display:none; }
   .statement, .products-heading { padding-inline:25px; }
   .statement { padding-block:75px 90px; }
@@ -289,14 +291,27 @@ footer > small { text-align:right; font-size:9px; }
   .quote { grid-template-columns:1fr; padding:85px 25px; gap:55px; }
   .quote::before { inset:0; opacity:.22; }
   .quote::after { display:none; }
-  .quote-intro { padding:0; }
+  .quote-intro { padding:0; text-align:center; }
+  .quote-intro h2, .quote-intro > p:not(.section-label) { margin-inline:auto; }
+  .quote-path li { grid-template-columns:1fr; gap:7px; text-align:center; }
+  .quote-path li > span { padding-top:0; }
+  .quote-assurance { justify-content:center; }
   .quote-card { box-shadow:0 25px 60px rgba(0,0,0,.28); }
+  .quote-card-head { flex-direction:column; gap:8px; text-align:center; }
   .quote-card form { padding:22px; }
   .quote-fields, .choice-columns { grid-template-columns:1fr; }
   .solution-grid { grid-template-columns:1fr 1fr; }
-  footer { grid-template-columns:1fr; padding:65px 25px 30px; gap:30px; }
-  footer > p, footer > small { text-align:left; }
-  footer > div { flex-wrap:wrap; }
+  .solution-grid button { justify-items:center; text-align:center; }
+  .solution-grid button > strong { max-width:none; }
+  .compact-choice button { position:relative; justify-content:center; text-align:center; }
+  .compact-choice button i { position:absolute; right:12px; }
+  .quote-submit { justify-content:center; gap:14px; }
+  .quote-submit > span { text-align:center; }
+  .form-note { text-align:center; }
+  footer { grid-template-columns:1fr; justify-items:center; padding:65px 25px 30px; gap:30px; text-align:center; }
+  .footer-brand { margin-inline:auto; }
+  footer > p, footer > small { text-align:center; }
+  footer > div { justify-content:center; flex-wrap:wrap; }
   .wa-launch-wrap { right:18px; bottom:18px; }
   .wa-launch-label { display:none; }
   .wa-launch { width:60px; height:60px; }
