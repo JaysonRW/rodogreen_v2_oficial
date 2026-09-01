@@ -7,6 +7,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 import { createTruck, type TruckRig } from "./three/truck/Truck";
+import { inspectModelAtPointer, type InspectedMesh } from "./three/truck/ModelInspector";
 
 export default function DumpTruckViewer() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,6 +15,7 @@ export default function DumpTruckViewer() {
   const [raised, setRaised] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(false);
+  const [inspected, setInspected] = useState<InspectedMesh | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -28,7 +30,7 @@ export default function DumpTruckViewer() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.08;
+    renderer.toneMappingExposure = 0.9;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFShadowMap;
 
@@ -50,11 +52,21 @@ export default function DumpTruckViewer() {
     controls.maxPolarAngle = 1.48;
     controls.autoRotate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     controls.autoRotateSpeed = 0.42;
-    const stopAutoRotate = () => { controls.autoRotate = false; };
-    canvas.addEventListener("pointerdown", stopAutoRotate);
+    const pointerStart = new THREE.Vector2();
+    const onPointerDown = (event: PointerEvent) => {
+      controls.autoRotate = false;
+      pointerStart.set(event.clientX, event.clientY);
+    };
+    const onPointerUp = (event: PointerEvent) => {
+      if (!truck || pointerStart.distanceTo(new THREE.Vector2(event.clientX, event.clientY)) > 5) return;
+      const result = inspectModelAtPointer(event, canvas, camera, truck.group);
+      if (result && new URLSearchParams(window.location.search).has("inspect3d")) setInspected(result);
+    };
+    canvas.addEventListener("pointerdown", onPointerDown);
+    canvas.addEventListener("pointerup", onPointerUp);
 
-    scene.add(new THREE.HemisphereLight(0xe8f3f4, 0x27302d, 1.8));
-    const key = new THREE.DirectionalLight(0xfff7e8, 4.3);
+    scene.add(new THREE.HemisphereLight(0xe8f3f4, 0x27302d, 1.25));
+    const key = new THREE.DirectionalLight(0xfff7e8, 3.4);
     key.position.set(7, 10, 7);
     key.castShadow = true;
     key.shadow.mapSize.set(2048, 2048);
@@ -65,10 +77,10 @@ export default function DumpTruckViewer() {
     key.shadow.bias = -0.00035;
     key.shadow.radius = 2.5;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0xc9e1ff, 1.65);
+    const fill = new THREE.DirectionalLight(0xc9e1ff, 1.2);
     fill.position.set(-7, 4, 5);
     scene.add(fill);
-    const rim = new THREE.DirectionalLight(0x72d39b, 2.05);
+    const rim = new THREE.DirectionalLight(0x72d39b, 1.4);
     rim.position.set(-6, 6, -7);
     scene.add(rim);
 
@@ -102,7 +114,7 @@ export default function DumpTruckViewer() {
       (loadError) => { console.error(loadError); setError(true); },
     );
 
-    const clock = new THREE.Clock();
+    const timer = new THREE.Timer();
     function resize() {
       const width = canvas.clientWidth;
       const height = canvas.clientHeight;
@@ -111,7 +123,8 @@ export default function DumpTruckViewer() {
       camera.updateProjectionMatrix();
     }
     function render() {
-      const delta = Math.min(clock.getDelta(), 0.05);
+      timer.update();
+      const delta = Math.min(timer.getDelta(), 0.05);
       truck?.animate(targetAngle.current, delta);
       controls.update(delta);
       renderer.render(scene, camera);
@@ -126,7 +139,8 @@ export default function DumpTruckViewer() {
       disposed = true;
       cancelAnimationFrame(frame);
       resizeObserver.disconnect();
-      canvas.removeEventListener("pointerdown", stopAutoRotate);
+      canvas.removeEventListener("pointerdown", onPointerDown);
+      canvas.removeEventListener("pointerup", onPointerUp);
       controls.dispose();
       scene.traverse((object) => {
         if (!(object instanceof THREE.Mesh)) return;
@@ -150,6 +164,7 @@ export default function DumpTruckViewer() {
       <canvas ref={canvasRef} aria-label="Modelo 3D realista e interativo da caçamba basculante Rodogreen" />
       {progress < 100 && !error && <div className="truck-loading"><span>Carregando engenharia 3D</span><strong>{progress}%</strong><i style={{ width: `${progress}%` }} /></div>}
       {error && <div className="truck-loading truck-error">Não foi possível carregar o modelo 3D.</div>}
+      {inspected && <div className="truck-inspector"><small>Model Inspector</small><strong>{inspected.name}</strong><span>{inspected.material} · {inspected.materialType}</span><code>{inspected.uuid}</code></div>}
       <div className="truck-viewer-top"><span>Gêmeo digital · Rodogreen</span><strong>Caçamba basculante industrial</strong></div>
       <div className="truck-specs" aria-label="Especificações do modelo representado">
         <span><i>01</i> Estrutura reforçada</span><span><i>02</i> Hidráulica proporcional</span><span><i>03</i> Visualização 360°</span>

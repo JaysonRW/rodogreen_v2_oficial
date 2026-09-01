@@ -111,6 +111,10 @@ img { display: block; width: 100%; }
 .truck-loading strong { color:var(--ink); font:10px var(--font-geist-mono); }
 .truck-loading i { grid-column:1 / -1; height:2px; background:var(--green); transition:width .25s ease; }
 .truck-loading.truck-error { grid-template-columns:1fr; color:#8d2e28; text-align:center; }
+.truck-inspector { position:absolute; z-index:6; left:30px; bottom:60px; width:min(310px,calc(100% - 60px)); padding:14px 16px; display:grid; gap:5px; color:#dfe8e3; background:rgba(10,17,14,.9); border-left:2px solid var(--green); box-shadow:0 14px 38px rgba(0,0,0,.2); pointer-events:none; }
+.truck-inspector small { color:var(--green); text-transform:uppercase; letter-spacing:1.5px; font-size:7px; }
+.truck-inspector strong { font-size:12px; }
+.truck-inspector span, .truck-inspector code { color:#9eaaa5; font:8px var(--font-geist-mono); overflow:hidden; text-overflow:ellipsis; }
 .truck-viewer-top { position:absolute; z-index:4; top:28px; left:30px; display:grid; gap:7px; pointer-events:none; }
 .truck-viewer-top span { color:var(--green-dark); text-transform:uppercase; letter-spacing:2px; font:9px var(--font-geist-mono); }
 .truck-viewer-top strong { color:var(--ink); font-size:13px; }
