@@ -167,8 +167,8 @@ export default function Home() {
         <div className="build-story">
           <div className="build-visual">
             <img
-              src="/images/engenharia-esboco-real-v1.png"
-              alt="Representação conceitual da evolução de um projeto: do esboço técnico à caçamba basculante finalizada"
+              src="/images/engenharia-a-estrada.png"
+              alt="Caçamba basculante Rodogreen evoluindo do desenho técnico para o produto final"
             />
             <div className="build-sweep" aria-hidden="true" />
             <div className="build-caption">
