@@ -199,6 +199,8 @@ footer { background:#000; color:#a5afab; padding:80px 8.5vw 35px; display:grid; 
 footer > p { color:white; font-size:20px; margin:0; text-align:right; }
 footer > div { display:flex; gap:30px; font-size:12px; }
 footer > small { text-align:right; font-size:9px; }
+footer > small a { color:#dce4e0; transition:color .2s; }
+footer > small a:hover { color:var(--green); }
 
 .wa-assistant { position:relative; z-index:100; }
 .wa-launch-wrap { position:fixed; z-index:100; right:28px; bottom:28px; display:flex; align-items:center; gap:12px; }

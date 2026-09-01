@@ -382,7 +382,13 @@ export default function Home() {
         </a>
         <p>Implementos robustos. Engenharia personalizada.</p>
         <div><a href="#implementos">Implementos</a><a href="#projetos">Projetos especiais</a></div>
-        <small>© 2026 Rodogreen Implementos. Todos os direitos reservados.</small>
+        <small>
+          © 2026 Rodogreen Implementos. Todos os direitos reservados.
+          <span aria-hidden="true"> · </span>
+          <a href="https://propagounaweb.com.br" target="_blank" rel="noopener noreferrer">
+            Criado por propagounaweb.com.br ↗
+          </a>
+        </small>
       </footer>
       <WhatsAppAssistant />
     </main>
