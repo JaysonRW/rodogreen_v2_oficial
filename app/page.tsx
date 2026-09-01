@@ -155,14 +155,9 @@ export default function Home() {
       </section>
 
       <section className="statement" id="empresa">
-        <p className="section-label">A qualidade está nos detalhes</p>
-        <div>
+        <div className="statement-heading">
+          <p className="section-label">A qualidade está nos detalhes</p>
           <h2>Do primeiro risco ao acabamento final.</h2>
-          <p>
-            Há 15 anos, a Rodogreen transforma necessidades operacionais em implementos
-            de alto padrão. Engenharia, corte, dobra, solda, pintura, montagem e instalação:
-            todas as etapas realizadas por uma equipe que conhece o produto por inteiro.
-          </p>
         </div>
         <div className="build-story">
           <div className="build-visual">
@@ -171,6 +166,14 @@ export default function Home() {
               alt="Caçamba basculante Rodogreen evoluindo do desenho técnico para o produto final"
             />
             <div className="build-sweep" aria-hidden="true" />
+            <div className="build-manifesto">
+              <span>Engenharia própria · Processo completo</span>
+              <p>
+                Há 15 anos, a Rodogreen transforma necessidades operacionais em implementos
+                de alto padrão. Engenharia, corte, dobra, solda, pintura, montagem e instalação:
+                todas as etapas realizadas por uma equipe que conhece o produto por inteiro.
+              </p>
+            </div>
             <div className="build-caption">
               <span>01—03</span>
               <strong>Da engenharia à estrada</strong>
