@@ -1,9 +1,7 @@
 "use client";
 
-import { FormEvent, lazy, Suspense, useState } from "react";
+import { FormEvent, useState } from "react";
 import WhatsAppAssistant from "./WhatsAppAssistant";
-
-const DumpTruckViewer = lazy(() => import("./DumpTruckViewer"));
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -121,7 +119,6 @@ export default function Home() {
         </button>
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navegação principal">
           <a href="#implementos" onClick={() => setMenuOpen(false)}>Implementos</a>
-          <a href="#engenharia" onClick={() => setMenuOpen(false)}>Engenharia</a>
           <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos especiais</a>
           <a href="#faq" onClick={() => setMenuOpen(false)}>Dúvidas</a>
           <a href="#empresa" onClick={() => setMenuOpen(false)}>A Rodogreen</a>
@@ -234,19 +231,6 @@ export default function Home() {
           <span>Projetos especiais</span><i />
           <span>Carrocerias baú</span>
         </div>
-      </section>
-
-      <section className="craft" id="engenharia">
-        <div className="craft-title">
-          <p className="section-label">Domínio de ponta a ponta</p>
-          <div>
-            <h2>Não é apenas fabricação.<br />É cultura de engenharia.</h2>
-            <p>Explore o implemento em 360° e veja como estrutura, hidráulica e chassi trabalham como um único sistema.</p>
-          </div>
-        </div>
-        <Suspense fallback={<div className="truck-viewer truck-loading">Preparando experiência 3D...</div>}>
-          <DumpTruckViewer />
-        </Suspense>
       </section>
 
       <section className="special" id="projetos">
@@ -394,7 +378,7 @@ export default function Home() {
           <img src="/images/logo-rodogreen-horizontal.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <p>Implementos robustos. Engenharia personalizada.</p>
-        <div><a href="#implementos">Implementos</a><a href="#engenharia">Engenharia</a><a href="#projetos">Projetos especiais</a></div>
+        <div><a href="#implementos">Implementos</a><a href="#projetos">Projetos especiais</a></div>
         <small>© 2026 Rodogreen Implementos. Todos os direitos reservados.</small>
       </footer>
       <WhatsAppAssistant />
