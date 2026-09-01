@@ -107,7 +107,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Rodogreen — página inicial">
-          <img src="/images/logo-rodogreen-horizontal.png" alt="Rodogreen — Implementos para o Transporte" />
+          <img src="/images/logo-rodogreen-white.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <button
           className="menu-toggle"
@@ -378,7 +378,7 @@ export default function Home() {
 
       <footer>
         <a className="brand footer-brand" href="#inicio">
-          <img src="/images/logo-rodogreen-horizontal.png" alt="Rodogreen — Implementos para o Transporte" />
+          <img src="/images/logo-rodogreen-white.png" alt="Rodogreen — Implementos para o Transporte" />
         </a>
         <p>Implementos robustos. Engenharia personalizada.</p>
         <div><a href="#implementos">Implementos</a><a href="#projetos">Projetos especiais</a></div>

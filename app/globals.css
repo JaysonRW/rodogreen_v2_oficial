@@ -21,8 +21,8 @@ img { display: block; width: 100%; }
   display: grid; grid-template-columns: 240px 1fr auto; align-items: center; gap: 32px;
   color: white; border-bottom: 1px solid rgba(255,255,255,.22);
 }
-.brand { display:flex; align-items:center; width:220px; height:58px; }
-.brand img { width:100%; height:auto; max-height:52px; object-fit:contain; object-position:left center; }
+.brand { display:flex; align-items:center; width:220px; height:58px; overflow:hidden; }
+.brand img { width:100%; height:100%; object-fit:cover; object-position:center; mix-blend-mode:screen; }
 .nav { display: flex; justify-content: center; gap: clamp(18px,3vw,48px); font-size: 13px; font-weight: 620; }
 .nav a { position: relative; padding: 38px 0; }
 .nav a::after { content:""; position:absolute; height:2px; background:var(--green); inset:auto 50% 27px; transition:.35s; }
@@ -194,7 +194,7 @@ img { display: block; width: 100%; }
 .form-note i { width:5px; height:5px; border-radius:50%; background:var(--green); }
 
 footer { background:#0b100e; color:#a5afab; padding:80px 8.5vw 35px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
-.footer-brand { width:250px; height:66px; }.footer-brand img { width:100%; max-height:60px; }
+.footer-brand { width:250px; height:66px; }
 footer > p { color:white; font-size:20px; margin:0; text-align:right; }
 footer > div { display:flex; gap:30px; font-size:12px; }
 footer > small { text-align:right; font-size:9px; }
